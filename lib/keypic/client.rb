@@ -23,9 +23,9 @@ module Keypic
       @method_name = method_name.to_sym
 
       @options = {
-        "FormID": Config.form_id,
-        "ResponseType": format,
-        "RequestType": method
+        "FormID" => Keypic.configuration.form_id,
+        "ResponseType" => format,
+        "RequestType" => method
       }.merge(options)
     end
 
@@ -34,16 +34,16 @@ module Keypic
     end
 
     def format
-      @format ||= @@types[Config.format.to_sym]
+      @format ||= @@types[Keypic.configuration.format.to_sym]
     end
 
     def invoke(options = {})
       request.body = @options.merge(options)
-      parse_response(HTTPI.post(request, :curb))
+      parse_response(HTTPI.post(request))
     end
 
     def request
-      @request ||= HTTPI::Request.new(:url => Config.endpoint)
+      @request ||= ::HTTPI::Request.new(:url => Keypic.configuration.endpoint)
     end
 
     protected
@@ -54,7 +54,7 @@ module Keypic
         if response.error?
           @parsed_response = nil
         else
-          @parsed_response = MultiJson.load(response.body)
+          @parsed_response = ::MultiJson.load(response.body)
         end
 
         @parsed_response

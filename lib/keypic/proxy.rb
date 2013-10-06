@@ -22,7 +22,7 @@ module Keypic
       params = normalize_message(options)
       params = { 'Token' => token }.merge(client_params).merge(params)
 
-      body = Client.new(:validate).invoke(params)
+      body = Keypic::Client.new(:validate).invoke(params)
 
       if body && body["status"] == 'response'
         body["spam"].to_f
@@ -45,7 +45,7 @@ module Keypic
     end
 
     def check!
-      body = Client.new(:check_form).invoke
+      body = Keypic::Client.new(:check_form).invoke
 
       if body && body["status"] == 'response'
         body["report"]
@@ -70,7 +70,7 @@ module Keypic
       def fetch_token_form_server
         params = { 'Quantity' => Keypic.configuration.quantity }.merge(client_params)
 
-        body = Client.new(:new_token).invoke(params)
+        body = Keypic::Client.new(:new_token).invoke(params)
 
         if body && body["status"] == 'new_token'
           body["Token"]

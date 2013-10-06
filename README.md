@@ -1,6 +1,7 @@
 # Keypic
 
 It just client fot Keypic API http://ws.keypic.com/?op=help
+How does it work? More info here: http://keypic.com/?tid=homepage_how_does_it_work
 
 ## Installation
 
@@ -43,3 +44,5 @@ You can provide a numeric value (%):
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+Copyright (c) 2013 Fodojo, released under the MIT license

@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'keypic/version'
@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Keypic::VERSION
   spec.authors       = ["Igor Galeta"]
   spec.email         = ["galeta.igor@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Client for Keypic Web Service API}
+  spec.summary       = %q{Keypic is a Web Service for avoid the use of CAPTCHAs}
+  spec.homepage      = "http://keypic.com/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
